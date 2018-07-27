@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Form, FormGroup, InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
 import SearchResults from './searchResults';
+import MovieResults from './moviesResult';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -37,14 +38,14 @@ class SearchBar extends Component {
             <div>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <InputGroup size="lg" style={{width: '50%', marginLeft: '20em', marginTop: '5em'}}>
+                        <InputGroup size="lg" style={{width: '50%', marginLeft: '20em', marginTop:'2.5em'}}>
                             <Input onChange={this.handleChange} value={this.state.value}/>
                             <InputGroupAddon addonType='append'>
                                 <Button>Search</Button>
                             </InputGroupAddon>
                         </InputGroup>
                     </FormGroup>
-                    {this.state.value!==''&&<SearchResults results={this.state.results}/>}
+                    {this.state.value!==''?(<SearchResults results={this.state.results}/>) : (<MovieResults/>)}
                 </Form>
             </div>
         )
